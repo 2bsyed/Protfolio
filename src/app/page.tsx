@@ -1,50 +1,26 @@
-"use client";
-
-import React, { useState } from "react";
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
-import Feedback from "@/components/Feedback";
-import Footer from "@/components/Footer";
-import Dock from "@/components/Dock";
-import AISidebar from "@/components/AISidebar";
+import PortfolioExperience from "@/components/PortfolioExperience";
 
 export default function Home() {
-  const [chatOpen, setChatOpen] = useState(false);
+  const origin = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    url: origin,
+    name: "Syed Abrar Fiaz",
+    jobTitle: "Full-Stack and AI Engineer",
+    email: "mailto:abrarfiaz12@gmail.com",
+    address: { "@type": "PostalAddress", addressLocality: "Dhaka", addressCountry: "BD" },
+    sameAs: ["https://github.com/2bsyed", "https://linkedin.com/in/2bsyed"],
+    knowsAbout: ["Software engineering", "Backend systems", "SaaS", "Artificial intelligence", "Machine learning"],
+  };
+
+  const websiteData = { "@context": "https://schema.org", "@type": "WebSite", name: "Syed Abrar Fiaz", url: origin, inLanguage: "en" };
 
   return (
-    <div className="relative min-h-screen bg-black text-white font-sans flex flex-col justify-between selection:bg-white selection:text-black overflow-x-hidden">
-      {/* Header */}
-      <Header />
-
-      {/* Main Content */}
-      <main className="flex-grow">
-        {/* Act I: Hero */}
-        <Hero />
-
-        {/* Act II: About */}
-        <About />
-
-        {/* Act III: Experience */}
-        <Experience />
-
-        {/* Act IV: Projects */}
-        <Projects />
-
-        {/* Act V: Feedback */}
-        <Feedback />
-      </main>
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Floating Bottom Nav Dock */}
-      <Dock onChatClick={() => setChatOpen(true)} />
-
-      {/* Gemini AI Assistant sidebar overlay */}
-      <AISidebar isOpen={chatOpen} onClose={() => setChatOpen(false)} />
-    </div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <PortfolioExperience />
+    </>
   );
 }

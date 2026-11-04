@@ -1,0 +1,7 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PortfolioPage } from "@/components/PortfolioPage";
+import { projects, sitePages } from "@/content/site";
+const thesis = projects.find((item) => item.slug === "network-anomaly-detection")!;
+export const metadata: Metadata = { title: sitePages.research.title, description: sitePages.research.description, alternates: { canonical: "/research" } };
+export default function ResearchPage() { return <PortfolioPage title="TESTING IDEAS AGAINST DATA." eyebrow={sitePages.research.eyebrow}><article className="research-feature"><p className="eyebrow">FINAL YEAR THESIS · 2025–2026</p><h2>{thesis.title}</h2><p>{thesis.summary}</p><div className="metric-strip"><div><strong>96.44%</strong><span>F1-SCORE, AS REPORTED IN CV</span></div><div><strong>99.35%</strong><span>AUC-ROC, AS REPORTED IN CV</span></div><div><strong>18 MB</strong><span>PEAK RAM, NO GPU</span></div></div><p>The hybrid Autoencoder–XGBoost system was evaluated on CSE-CIC-IDS2018, cross-validated on CIC-IDS-2017, and analyzed with SHAP. Reported performance is dataset-specific; it does not establish expected performance on other networks.</p><p className="tag-row">{thesis.stack.join(" · ")}</p><Link className="text-link" href="/work/network-anomaly-detection">READ THE CASE STUDY ↗</Link></article><p className="small-note">No articles or publications are claimed. Additional research details can be added when approved source material is available.</p></PortfolioPage>; }

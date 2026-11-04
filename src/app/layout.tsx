@@ -1,45 +1,32 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, Inter, JetBrains_Mono } from "next/font/google";
+import { Silkscreen, Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const bodoniModa = Bodoni_Moda({
-  variable: "--font-bodoni-moda",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
+const pixel = Silkscreen({ variable: "--font-pixel", subsets: ["latin"], weight: ["400", "700"], display: "swap" });
+const sans = Space_Grotesk({ variable: "--font-sans", subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap" });
+const mono = Space_Mono({ variable: "--font-mono", subsets: ["latin"], weight: ["400", "700"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Syed Abrar Fiaz | AI & Backend Engineer",
-  description: "Official portfolio of Syed Abrar Fiaz, featuring production LLM-powered SaaS, AI-driven anomaly detection systems, and scalable backend microservices.",
-  keywords: ["Syed Abrar Fiaz", "AI Engineer", "Backend Engineer", "Python Developer", "FastAPI", "Next.js", "Machine Learning"],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  title: { default: "Syed Abrar Fiaz — Software Engineer", template: "%s · Syed Abrar Fiaz" },
+  description: "Software engineer in Dhaka, Bangladesh building SaaS products, backend systems, and practical AI-powered applications.",
+  alternates: { canonical: "/" },
+  keywords: ["Syed Abrar Fiaz", "Software Engineer", "AI Engineer", "FastAPI", "Next.js", "Bangladesh"],
   authors: [{ name: "Syed Abrar Fiaz" }],
+  icons: { icon: "/assets/logo.webp" },
+  openGraph: {
+    title: "Syed Abrar Fiaz — Software Engineer",
+    description: "Explore selected projects, engineering experience, and ways to work together.",
+    type: "website",
+    url: "/",
+  },
+  twitter: { card: "summary_large_image", title: "Syed Abrar Fiaz — Software Engineer", description: "SaaS, backend systems, and practical AI-powered software." },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${bodoniModa.variable} ${inter.variable} ${jetbrainsMono.variable} scroll-smooth dark`}
-    >
-      <body className="min-h-screen bg-black text-white font-sans antialiased selection:bg-white selection:text-black">
-        {children}
-      </body>
+    <html lang="en" className={`${pixel.variable} ${sans.variable} ${mono.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
