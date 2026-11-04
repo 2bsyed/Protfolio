@@ -7,8 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, CodeXml, Download, Mail, Menu, Network, Send, Sparkles, X } from "lucide-react";
 import { projects } from "@/content/site";
 
-const apiBase = (process.env.NEXT_PUBLIC_FASTAPI_URL || "http://localhost:8000").replace(/\/$/, "");
-
 type ChatMessage = { role: "user" | "assistant"; content: string; failed?: boolean };
 
 const initialMessages: ChatMessage[] = [{ role: "assistant", content: "Hey, I’m Abrar’s AI assistant. Ask about his projects, experience, or how to work together." }];
@@ -50,7 +48,7 @@ export default function PortfolioExperience() {
     setChatText("");
     setChatBusy(true);
     try {
-      const response = await fetch(`${apiBase}/api/chat`, {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message, history: previous }),

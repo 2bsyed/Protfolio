@@ -2,8 +2,6 @@
 
 import { useState, type FormEvent } from "react";
 
-const apiBase = (process.env.NEXT_PUBLIC_FASTAPI_URL || "http://localhost:8000").replace(/\/$/, "");
-
 export default function ContactForm() {
   const [kind, setKind] = useState<"hiring" | "project">("hiring");
   const [status, setStatus] = useState("");
@@ -16,7 +14,7 @@ export default function ContactForm() {
     setBusy(true);
     setStatus("Sending your inquiry…");
     try {
-      const response = await fetch(`${apiBase}/api/contact`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...values, inquiry_type: kind }) });
+      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...values, inquiry_type: kind }) });
       const result = await response.json();
       if (!response.ok) throw new Error(result.detail || "Message delivery is not configured yet.");
       setStatus("Your inquiry was delivered. Thank you — Abrar will follow up.");

@@ -5,7 +5,7 @@ A Next.js App Router portfolio with a separate FastAPI service for the Gemini as
 ## Local development
 
 1. Install frontend dependencies with `npm install`.
-2. Copy `.env.example` to `.env.local`. Set `NEXT_PUBLIC_FASTAPI_URL=http://localhost:8000` for local use.
+2. Copy `.env.example` to `.env.local`. `FASTAPI_URL` is server-only and defaults to `http://127.0.0.1:8000` for local development.
 3. Start the frontend with `npm run dev` and open `http://localhost:3000`.
 4. In another terminal, create a Python virtual environment, install `requirements.txt`, copy `backend/.env.example` to `backend/.env`, and start the API from the project root with `uvicorn backend.main:app --reload --port 8000`.
 
@@ -37,7 +37,7 @@ No production domain, deployment, Search Console property, or repository write h
 
 ## Deployment
 
-Deploy the Next.js frontend and FastAPI backend as separate services. Set the frontend's `NEXT_PUBLIC_FASTAPI_URL` to the public HTTPS FastAPI origin at build time. Set Gemini and SMTP credentials only in the backend host's secret settings, and set `FRONTEND_ORIGINS` to the deployed site origin. Set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_CALCOM_LINK` only after selecting the public domain and a configured event. Use a preview deployment first and keep production unchanged until it is reviewed and explicitly approved.
+Deploy the Next.js frontend and FastAPI backend as separate services or as Vercel Services. Set the frontend's server-side `FASTAPI_URL` to the FastAPI origin. Set Gemini and SMTP credentials only in the backend host's secret settings, and set `FRONTEND_ORIGINS` to the deployed site origin if the browser calls the API directly. Set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_CALCOM_LINK` only after selecting the public domain and a configured event.
 
 ## QA commands
 
