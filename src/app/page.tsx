@@ -1,7 +1,8 @@
 import PortfolioExperience from "@/components/PortfolioExperience";
+import { getSiteUrl } from "@/lib/site-url";
 
 export default function Home() {
-  const origin = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const origin = getSiteUrl().origin;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",

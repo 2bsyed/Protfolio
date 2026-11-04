@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
+import { getSiteUrl } from "@/lib/site-url";
 import { publishedRoutes } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const origin = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const origin = getSiteUrl().origin;
   return publishedRoutes.filter((path) => path !== "/cv").map((path) => ({
     url: new URL(path, origin).toString(),
     changeFrequency: path === "/" ? "monthly" : "yearly",
