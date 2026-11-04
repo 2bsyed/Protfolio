@@ -54,12 +54,18 @@ export default function PortfolioExperience() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message, history: previous }),
+        signal: AbortSignal.timeout(40_000),
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.detail || "The assistant is unavailable right now.");
       setMessages((current) => [...current, { role: "assistant", content: data.reply }]);
-    } catch {
-      setMessages((current) => [...current, { role: "assistant", content: "I couldn’t reach the assistant just now. Please try again, or email Abrar at abrarfiaz12@gmail.com.", failed: true }]);
+    } catch (error) {
+      const detail = error instanceof DOMException && error.name === "TimeoutError"
+        ? "The assistant took too long to respond."
+        : error instanceof Error && error.message !== "Failed to fetch"
+          ? error.message
+          : "I couldn’t reach the assistant just now.";
+      setMessages((current) => [...current, { role: "assistant", content: `${detail} Please try again, or email Abrar at abrarfiaz12@gmail.com.`, failed: true }]);
     } finally {
       setChatBusy(false);
     }

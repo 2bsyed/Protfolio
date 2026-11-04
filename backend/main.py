@@ -21,7 +21,7 @@ load_dotenv(Path(__file__).with_name(".env"))
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "").strip()
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash").strip()
 CONTACT_TO_EMAIL = os.getenv("CONTACT_TO_EMAIL", "abrarfiaz12@gmail.com").strip()
-ALLOWED_ORIGINS = [origin.strip() for origin in os.getenv("FRONTEND_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",") if origin.strip()]
+ALLOWED_ORIGINS = [origin.strip() for origin in os.getenv("FRONTEND_ORIGINS", "https://2bsyed.vercel.app,http://localhost:3000,http://127.0.0.1:3000").split(",") if origin.strip()]
 
 PROFILE = """Verified portfolio profile for Syed Abrar Fiaz:
 - Software engineer in Dhaka, Bangladesh. B.Sc. Computer Science & Engineering, Daffodil International University, CGPA 3.59/4.00 (2020–2026).

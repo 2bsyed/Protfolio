@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">Network anomaly detection research</title>
+  <desc id="desc">A retro blue network grid with connected data points and a pixel shield.</desc>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#f8f0dc" stroke-opacity=".62" stroke-width="2"/>
+      <circle cx="0" cy="0" r="3" fill="#f8f0dc"/>
+    </pattern>
+    <pattern id="grain" width="110" height="110" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="9" r="1.1" fill="#fff" fill-opacity=".2"/><circle cx="63" cy="24" r=".8" fill="#fff" fill-opacity=".17"/>
+      <circle cx="96" cy="74" r="1.2" fill="#fff" fill-opacity=".18"/><circle cx="34" cy="91" r=".8" fill="#fff" fill-opacity=".2"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="320" fill="#111dff"/>
+  <rect width="1200" height="320" fill="url(#grid)" opacity=".56"/>
+  <rect width="1200" height="320" fill="url(#grain)"/>
+  <path d="M0 236 142 108l126 96 143-133 137 137 160-93 129 104 125-133 138 101" fill="none" stroke="#f8f0dc" stroke-width="5" stroke-dasharray="10 10"/>
+  <g fill="#f8f0dc" stroke="#090b24" stroke-width="5">
+    <rect x="118" y="84" width="44" height="44"/><rect x="246" y="181" width="44" height="44"/>
+    <rect x="389" y="49" width="44" height="44"/><rect x="526" y="185" width="44" height="44"/>
+    <rect x="686" y="91" width="44" height="44"/><rect x="813" y="197" width="44" height="44"/>
+    <rect x="935" y="62" width="44" height="44"/><rect x="1070" y="160" width="44" height="44"/>
+  </g>
+  <path d="M594 76h28v18h24v18h20v30h-18v20h-14v22h-28v-22h-14v-20h-18v-30h20V94h20z" fill="#ff574b" stroke="#090b24" stroke-width="6"/>
+  <path d="M600 119h40M620 99v74" stroke="#f8f0dc" stroke-width="5"/>
+</svg>

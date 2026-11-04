@@ -19,8 +19,8 @@ export const projects = [
     title: "AI-Driven Network Anomaly Detection",
     eyebrow: "FINAL YEAR THESIS · 2025–2026",
     summary: "Hybrid ML intrusion detection evaluated on public datasets.",
-    image: "/azan-reference.jpg",
-    alt: "",
+    image: "/network-research.svg",
+    alt: "Electric blue pixel network map with a shield for anomaly detection research",
     stack: ["Python", "Autoencoder", "XGBoost", "scikit-learn", "SHAP"],
     sections: [
       ["Overview", "This final-year thesis explored a hybrid Autoencoder–XGBoost system for network intrusion detection using the CSE-CIC-IDS2018 dataset."],
