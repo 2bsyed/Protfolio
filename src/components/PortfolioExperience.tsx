@@ -126,7 +126,7 @@ export default function PortfolioExperience() {
                 </Link>
                 <div className="project-title"><h3>{project.title}</h3><span className="project-type">{project.eyebrow.split(" · ")[0]}</span></div>
                 <p>{project.summary}</p>
-                <div className="project-bottom"><span>{project.stack.slice(0, 4).join(" · ")}</span><Link href={`/work/${project.slug}`}>CASE STUDY ↗</Link></div>
+                <div className="project-bottom"><span>{project.stack.slice(0, 4).join(" · ")}</span><div className="project-links"><Link href={`/work/${project.slug}`}>CASE STUDY ↗</Link>{project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer">LIVE APP ↗</a>}</div></div>
               </article>
             ))}
           </div>

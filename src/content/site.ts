@@ -6,6 +6,7 @@ export const projects = [
     summary: "Academic SaaS for guidance, prediction, and AI mentoring.",
     image: "/ai-mentor-reference.jpg",
     alt: "Blue pixel artwork for the AI-Mentor case study, cropped from the supplied portfolio reference",
+    liveUrl: null,
     stack: ["Python", "FastAPI", "PostgreSQL", "pgvector", "Ollama", "Next.js", "Docker", "MCP"],
     sections: [
       ["Overview", "AI-Mentor is a multi-tenant academic SaaS built to bring academic guidance and student support workflows together."],
@@ -21,6 +22,7 @@ export const projects = [
     summary: "Hybrid ML intrusion detection evaluated on public datasets.",
     image: "/network-research.svg",
     alt: "Electric blue pixel network map with a shield for anomaly detection research",
+    liveUrl: null,
     stack: ["Python", "Autoencoder", "XGBoost", "scikit-learn", "SHAP"],
     sections: [
       ["Overview", "This final-year thesis explored a hybrid Autoencoder–XGBoost system for network intrusion detection using the CSE-CIC-IDS2018 dataset."],
@@ -36,6 +38,7 @@ export const projects = [
     summary: "Coaching workflows for enrolment, attendance, fees, and administration.",
     image: "/edu-flow-reference.jpg",
     alt: "Blue pixel artwork for the EduFlow case study, cropped from the supplied portfolio reference",
+    liveUrl: "https://eduflowbd.vercel.app/",
     stack: ["PHP", "MySQL", "MVC", "Multi-tenancy"],
     sections: [
       ["Overview", "EduFlow is a coaching-management platform designed and built from scratch around everyday academic administration workflows."],
